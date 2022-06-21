@@ -7,8 +7,9 @@ from time import sleep
 import random
 from requests_html import HTMLSession
 
-session = HTMLSession()
+
 def regis(data):
+    session = requests.Session()
     random_angka = random.randint(100,999)
     random_angka_dua = random.randint(10,99)
     additonal = ''.join(random.choice(string.ascii_lowercase + string.digits) for _ in range(5))
@@ -87,13 +88,16 @@ def regis(data):
             verif_url = "https://koinswap.io/verify-email/"+verif_url.replace('amp','').replace(";",'')
             req = session.get(verif_url)
             #print(req.text)
-            req.html.render()  
+          
             print(f'[*] [{email}] URL Verification: {verif_url}')
-            sleep(10)
+            
+            session.cookies.clear()
             break
         except Exception as e:
-         
-            print(f"[*] [{email}] Your Email doesn't have a new message, Reload!")
+            if "list index out of range" == str(e):
+                print(f"[*] [{email}] Your Email doesn't have a new message, Reload!")
+            else:
+                print(f'[*] [{email}] Error: {e}')
             n = n+1
     
     
