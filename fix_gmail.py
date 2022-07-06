@@ -138,6 +138,10 @@ def regis(data):
                                 f.write(f"{verif_url}\n")
                         req = session.get(verif_url,timeout=10)
                         session.cookies.clear()
+                        list_check.remove(email_user)
+                        with open('email.txt','w',encoding='utf-8') as f: f.write(f'')
+                        for m in list_check[:]:
+                            with open('email.txt','a',encoding='utf-8') as f: f.write(f'{m}\n')
                         break
                 except Exception as e:
                     print(e)
