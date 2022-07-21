@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 from multiprocessing import Pool
 import requests, time, string
 from time import sleep
-import random
+import random,config
 
 def regis(data):
     session = requests.Session()
@@ -24,7 +24,7 @@ def regis(data):
     "sec-fetch-site": "same-origin",
     "sec-fetch-user": "?1",
     "upgrade-insecure-requests": "1",
-    #"cookie": "referralcode=7PSyr7; XSRF-TOKEN=eyJpdiI6IkNRNGpKTnBwVG4zbElsVEl3cW5IeEE9PSIsInZhbHVlIjoiOVh0elp6dmFScFJ3OU9TWjVER3Qvdis2ZFp6WmFuZ1lNTzNVS0RBY3RHMytxVFR4OVJmNlpWQTlWMkpIc0VQN0I2R2R1VHhCWVdtSlRINzBPUTNuLy9hdmJyK2tqMUVyZjJWenI0ZjllN0pQVlJHTTl6MTlzdE1nVkkzeUlxbmciLCJtYWMiOiI3ZjQ2ZTI1OTkwMzliNmFmMjhkZDI4NjdjZWNmZDk0YTc3ZmUzNmFhOTIyNWU3YTRlNTZjMWM5NDFlOGE3OWY5In0%3D; koinswap_session=eyJpdiI6IklJczVQUjdSZUR5a29GQUZ6RFp2UGc9PSIsInZhbHVlIjoic1JBVXZGV3Jkb2Y2K3FpUmY5eFBSNEkrUUEya3JqQW5NRG1ZT3Uwc3MvQm5KOXM5ZUlCMjI3ekVzRGhhMEZCenZwLytNUGoydzdhVlp0aTRWSCtEemFXcmsrUnNSMGJPVzB2VUZYSGFFYzZyekdINjQyZXg0cGxNWWgxVVhVRloiLCJtYWMiOiJjMGY4N2ZiMTk4YzhjMzNiN2E2YjQ5MGZkZTlhMjVjM2RlNDkyYjJjZTUzYTJmYTMxMDBiMjAzZTFlOThiN2JlIn0%3D",
+    "cookie": config.cookie,
     #"Referer": "https://koinswap.io/register?referralcode=7PSyr7&fbclid=IwAR33kKeo4y44g1uLG78Go5F7_xJoxvVwZeQ3gj8kf8SpOI-7oT5yj9gJH-8",
     "Referrer-Policy": "strict-origin-when-cross-origin"
   }
